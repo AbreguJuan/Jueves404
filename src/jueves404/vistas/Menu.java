@@ -20,6 +20,10 @@ private static ArrayList<Producto> productos=new ArrayList<>();
     public Menu() {
         initComponents();
     }
+    
+    public static ArrayList<Producto> getListaProductos() {
+        return productos;
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -35,6 +39,8 @@ private static ArrayList<Producto> productos=new ArrayList<>();
         jmProductos = new javax.swing.JMenu();
         jmiAlta = new javax.swing.JMenuItem();
         jmiConsulta = new javax.swing.JMenuItem();
+        jmCategoria = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
         jmSalir = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -69,6 +75,18 @@ private static ArrayList<Producto> productos=new ArrayList<>();
         jmProductos.add(jmiConsulta);
 
         jMenuBar1.add(jmProductos);
+
+        jmCategoria.setText("Consultas");
+
+        jMenuItem1.setText("Categoria");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jmCategoria.add(jMenuItem1);
+
+        jMenuBar1.add(jmCategoria);
 
         jmSalir.setText("Salir");
         jMenuBar1.add(jmSalir);
@@ -109,6 +127,15 @@ private static ArrayList<Producto> productos=new ArrayList<>();
         escritorio.add(consulta);
         escritorio.moveToFront(consulta);
     }//GEN-LAST:event_jmiConsultaActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        escritorio.removeAll();
+        escritorio.repaint();
+        vistaCategoria categoria = new vistaCategoria();
+        categoria.setVisible(true);
+        escritorio.add(categoria);
+        escritorio.moveToFront(categoria);
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -155,6 +182,8 @@ private static ArrayList<Producto> productos=new ArrayList<>();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane escritorio;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenu jmCategoria;
     private javax.swing.JMenu jmProductos;
     private javax.swing.JMenu jmSalir;
     private javax.swing.JMenuItem jmiAlta;
